@@ -1,0 +1,33 @@
+site:
+  baseUrl: https://example.com
+  title: Site title
+srcDir: src
+outputDir: dist
+templatesDir: templates
+
+rules:
+  - name: posts
+    action:
+      name: build
+      template: post.html
+      sort:
+        by: date
+        order: desc
+    patterns:
+      - posts//*.md
+  - name: index
+    action:
+      name: build
+      template: index.html
+    patterns:
+      - index.md
+  - name: pages
+    action:
+      name: build
+      template: base.html
+    patterns:
+      - //*.md
+  - name: assets
+    action: copy
+    patterns:
+      - //*
